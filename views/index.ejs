@@ -10,6 +10,12 @@
       <div class="centered">
         <img src="products.png" alt="Avatar woman">
         <h2><%= title %></h2>
+        <select class="browser-default custom-select">
+          <option selected>Encuentra tu Supermercado</option>
+          <% for(var i=0; i<superMarkets.length; i++) {%>
+            <option value="<%= superMarkets[i].nombre %>" onchange="redirectToSuperMarket()" ><%= superMarkets[i].nombre %></option>
+          <% } %>
+        </select>
       </div>
     </div>
     
@@ -18,12 +24,14 @@
         <form action="/products" method="GET">
           <div class="form-group">
             <label for="title">Supermecados</label>
-            <input type="text" class="form-control" id="superMarket" name="superMarket" value="Paraiso">
+            <input type="text" class="form-control" id="superMarket" name="superMarket">
           </div>
-
-          <button type="submit" class="btn btn-primary mb-2">Regitra tu Supermecado</button>
+          <button type="submit" class="btn btn-primary mb-2">Regitra tu supermecado</button>
         </form>
       </div>
     </div>
   </body>
+  <footer>
+    <script src="superMarkets.js"></script>
+  </footer>
 </html>

@@ -6,7 +6,7 @@ const path = require('path');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const productsRouter = require('./routes/products');
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', productsRouter);
+app.use('/api', apiRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Products <%= superMarket %> </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="split left">
+      <div class="centered">
+        <h3><%= superMarket %></h3>
+        <form method="POST" action="http://localhost:4000/api/products" class="was-validated">
+            <div class="form-group">
+              <label for="product">Producto:</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu producto" name="nombre" required>
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+              <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+              </div>
+              <input type="text" hidden class="form-control" id="referencia" name="referecia" value="<%= superMarket %>">
+
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </form>
+      </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
+          <ul>
+            <li>Hola</li>
+            <% for(var i=0; i<productos.length; i++) {%>
+              <li value="<%= productos[i].nombre %>"><%= productos[i].nombre %></li>
+            <% } %>
+          </ul>
+        </div>
+    </div>
+  </body>
+</html>

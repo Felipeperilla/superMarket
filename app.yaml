@@ -1,5 +1,6 @@
 #application:  modified-wonder-87620
 runtime: nodejs12
+service: supermarket
 # service: 
 # env: flex
 # env_constiables:
