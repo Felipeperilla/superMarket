@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%=  %>
+    <%if (superMarket == 'Supermercado') { %>
+      console.log(superMarket)
+    <% } %>
     <title>Products <%= superMarket %> </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -9,7 +13,7 @@
     <div class="split left">
       <div class="centered">
         <h3><%= superMarket %></h3>
-        <form method="POST" action="http://localhost:4000/api/products" class="was-validated">
+        <form method="POST" action="https://supermarket-dot-evident-factor-259411.appspot.com/api/products" class="was-validated">
             <div class="form-group">
               <label for="product">Producto:</label>
               <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu producto" name="nombre" required>
@@ -17,11 +21,11 @@
               <div class="invalid-feedback">Please fill out this field.</div>
               <div class="form-group">
                 <label for="descripcion">Descripcion</label>
-                <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please fill out this field.</div>
               </div>
-              <input type="text" hidden class="form-control" id="referencia" name="referecia" value="<%= superMarket %>">
+              <input type="text" hidden class="form-control" id="superMarket" name="superMarket" value="<%= superMarket %>">
 
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>

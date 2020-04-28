@@ -11,6 +11,7 @@ const corsOptions = {
 }
 
 router.post('/products', cors(), async (req, res, next) => {
+  console.log("req.body =>>>>>>>>>",req.body)
   const props = [{propName: 'descripcion', propValue: req.body.descripcion},{propName: 'idSuperMarket', propValue: req.body.superMarket},{propName: 'nombre', propValue: req.body.nombre}]
   utilsDB.addDocument('products', props);
   res.json('ready')

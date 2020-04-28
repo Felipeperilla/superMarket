@@ -4,6 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const path = require('path');
 const logger = require('morgan');
+const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
@@ -16,6 +17,7 @@ app.set('view engine', 'ejs');
 app.use(helmet());
 app.disable('x-powered-by');
 app.use(logger('dev'));
+app.use(bodyParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));

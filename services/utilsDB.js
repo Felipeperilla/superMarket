@@ -15,7 +15,6 @@ const DB = {
         try {
             let snapshot = await db.collection(collection).get();
             snapshot.forEach((doc) => {
-                console.log(doc.id, '=>', doc.data());
                 data.push(doc.data());
             });        
         } catch (error) {
@@ -27,14 +26,12 @@ const DB = {
     addDocument: async (collection, props) => {
     
         let db = admin.firestore();
-        let data = []
     
         try {
             let obj = {}
             props.map(prop => obj[prop.propName] = prop.propValue)
             let docRef = await db.collection(collection).doc();
             let setAda = await docRef.set(obj);
-            console.log("setAda = >", setAda)
         } catch (error) {
             console.log('Error getting documents', error);
         }
